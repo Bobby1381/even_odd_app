@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even odd app</title>
+    <style>
+        *{
+            font-size: 40px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color:black;
+        }
+        body{
+            background: linear-gradient(rgb(209, 117, 117), rgb(95, 95, 226));
+            height: 100vh;
+
+        }
+        input{
+            border-radius: 19px;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 75%;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <center>
+        <h1>Even Odd Number Finder App</h1>
+        <form onsubmit="find()">
+        <input type="number" id="num1" step="any" placeholder="Enter first number">
+        <br><br>
+        <input type="submit" value="m1">
+        <input type="submit" value="m2">
+        <input type="submit" value="m3">
+       
+        </form>
+        <h2 id="msg"></h2>
+    </div>
+        <script>
+           function find(){
+            event.preventDefault();
+            let num1 = document.getElementById("num1");
+            let msg=document.getElementById("msg");
+            let action=document.activeElement.value;
+
+            if(num1.value===""){
+                alert("enter first number");
+                innerHTML="";
+                num1.focus();
+                msg.innerHTML=""
+                return;
+            }
+            let n=parseInt(num1.value);
+            let ans=""
+            if(action==="m1")
+            {
+                ans=n%2===0? "even":"odd";
+                msg.innerHTML="m1-->"+ans;
+            }
+            else if(action==="m2"){
+                if(n%2===0)
+                ans="even";
+                else
+                ans="odd";
+                msg.innerHTML="m2-->"+ans;
+            }
+            else if(action==="m3"){
+                switch(n%2){
+                    case 0 :ans="even";break;
+                    default :ans="odd";break;
+                }
+                msg.innerHTML="m3-->"+ans;
+            }
+           }
+            
+        </script>
+    </center>
+    
+</body>
+</html>
